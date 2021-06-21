@@ -7,8 +7,8 @@ const ALPHABET = ['a', 'b', 'c','d','e','f','g','h','i','j','k','l','m','n','o',
 function focusOnWords(arr){
 
     let result;
-    let foundWords = []; //This is the array that'll list the words that got their letters in alphabetical order
-
+    let foundWords = [];
+    
     for (let i = 0; i < arr.length; i++){
         result = focusOnLetters(arr[i]);
       
@@ -23,7 +23,7 @@ function focusOnWords(arr){
 function focusOnLetters(word){
 
     let inOrder = [];
-    let takeLetters = word.split(""); //We're splitting up the word, and we get a new array with that word's letters as elements
+    let takeLetters = word.split(""); 
     let join;
 
     for (let j = 0; j < takeLetters.length; j++){
@@ -43,7 +43,7 @@ function focusOnLetters(word){
 
 const isAlphabetical = arr => {
 
-    let count = 0; //Explanation of this count on line 55
+    let count = 0;
 
     for (let i = 0; i < arr.length-1; i++){
 
@@ -52,9 +52,6 @@ const isAlphabetical = arr => {
         }}
 
     if (count === arr.length-1){ 
-        /*If the count is equal to the length of the array, minus one (because [0, 1, 2, 3, 4] has 5 values but we're doing the calculation 5-1 times),
-        then all elements of the array have been checked, and they all passed, so the word has its letters in alphabetical order since
-        the letters indexes are all in order numerically*/
         return true
     }
     return false
