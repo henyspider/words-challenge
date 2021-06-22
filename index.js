@@ -12,13 +12,13 @@ function focusOnWords(arr){
     for (let i = 0; i < arr.length; i++){
         result = focusOnLetters(arr[i]);
       
-        if (result != false){
+        if (result){
             foundWords.push(result)
         }
     }
 
     return foundWords
-}
+    }
 
 function focusOnLetters(word){
 
@@ -32,13 +32,13 @@ function focusOnLetters(word){
     
     let finalCheck = isAlphabetical(inOrder)
 
-    if (finalCheck === true){
+    if (finalCheck){
         join = takeLetters.join("");
     } else {
         return false
     }
 
-    return join
+    return true
 }
 
 const isAlphabetical = arr => {
@@ -49,7 +49,8 @@ const isAlphabetical = arr => {
 
         if (arr[i+1] > arr[i]){
             count += 1
-        }}
+        }
+    }
 
     if (count === arr.length-1){ 
         return true
