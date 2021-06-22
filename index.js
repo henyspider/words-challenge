@@ -38,7 +38,7 @@ function focusOnLetters(word){
         return false
     }
 
-    return true
+    return finalCheck
 }
 
 function isAlpabetical(arr) {
