@@ -52,10 +52,7 @@ const isAlphabetical = arr => {
         }
     }
 
-    if (count === arr.length-1){ 
-        return true
-    }
-    return false
+    return count === arr.length-1
 }
 
 console.log(focusOnWords(words))
