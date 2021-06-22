@@ -41,7 +41,7 @@ function focusOnLetters(word){
     return true
 }
 
-const isAlphabetical = arr => {
+function isAlpabetical(arr) {
 
     let count = 0;
 
