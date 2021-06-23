@@ -4,55 +4,56 @@ const data = fs.readFileSync('words_alpha.txt', 'utf8');
 const words = data.split('\r\n');
 const ALPHABET = ['a', 'b', 'c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
 
-function focusOnWords(arr){
+function areAlphabetical(words){
 
-    let result;
-    let foundWords = [];
+    let alphabeticalWords = [];
     
-    for (let i = 0; i < arr.length; i++){
-        result = focusOnLetters(arr[i]);
-      
-        if (result){
-            foundWords.push(result)
+    for (let i = 0; i < words.length; i++){
+
+        if (isAlphabetical(words[i])){
+            alphabeticalWords.push(words[i])
         }
     }
 
-    return foundWords
-    }
+    return isLongestWord(alphabeticalWords)
+ }
 
-function focusOnLetters(word){
 
-    let inOrder = [];
-    let takeLetters = word.split(""); 
-    let join;
+function isAlphabetical(word){
 
-    for (let j = 0; j < takeLetters.length; j++){
-       inOrder.push(ALPHABET.indexOf(takeLetters[j]))
+    let alphabeticalWord = [];
+    let count = 0; 
+
+    for (let j = 0; j < word.length; j++){
+       alphabeticalWord.push(ALPHABET.indexOf(word[j]))
     } 
     
-    let finalCheck = isAlphabetical(inOrder)
+    for (let i = 0; i < alphabeticalWord.length-1; i++){
 
-    if (finalCheck){
-        join = takeLetters.join("");
-    } else {
-        return false
-    }
-
-    return finalCheck
-}
-
-function isAlpabetical(arr) {
-
-    let count = 0;
-
-    for (let i = 0; i < arr.length-1; i++){
-
-        if (arr[i+1] > arr[i]){
+        if (alphabeticalWord[i+1] > alphabeticalWord[i]){
             count += 1
         }
     }
-
-    return count === arr.length-1
+    
+    return count === alphabeticalWord.length-1
 }
 
-console.log(focusOnWords(words))
+
+function isLongestWord(arr){
+
+let baseLength = 0;
+let longest;
+    
+ for (let i = 0; i < arr.length; i++) {
+
+    if (arr[i].length > baseLength) {
+          baseLength = arr[i].length;
+          longest = arr[i];
+        }
+    }
+
+return longest
+
+}
+
+console.log(areAlphabetical(words))
