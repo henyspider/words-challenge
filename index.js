@@ -4,7 +4,7 @@ const data = fs.readFileSync('words_alpha.txt', 'utf8');
 const words = data.split('\r\n');
 const ALPHABET = ['a', 'b', 'c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
 
-function areAlphabetical(words){
+function getLongestAlphabeticalWord(words){
 
     let alphabeticalWords = [];
     
@@ -15,7 +15,7 @@ function areAlphabetical(words){
         }
     }
 
-    return isLongestWord(alphabeticalWords)
+    return getTheLongestWord(alphabeticalWords)
  }
 
 
@@ -39,20 +39,20 @@ function isAlphabetical(word){
 }
 
 
-function isLongestWord(arr){
+function getTheLongestWord(arr){
 
-let baseLength = 0;
-let longest;
+    let baseLength = 0;
+    let longest;
     
- for (let i = 0; i < arr.length; i++) {
+    for (let i = 0; i < arr.length; i++) {
 
-    if (arr[i].length > baseLength) {
+        if (arr[i].length > baseLength) {
           baseLength = arr[i].length;
           longest = arr[i];
         }
     }
 
-return longest
+    return longest
 
 }
 
