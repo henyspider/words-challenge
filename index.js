@@ -56,4 +56,4 @@ function getTheLongestWord(arr){
 
 }
 
-console.log(areAlphabetical(words))
+console.log(getLongestAlphabeticalWord(words))
