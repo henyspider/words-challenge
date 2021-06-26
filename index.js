@@ -65,4 +65,4 @@ function getLongestWord(alphabeticalWords) {
 	return longest;
 }
 
-console.log(getLongestAlphabeticalWord(words)); //undefined
+console.log(getLongestAlphabeticalWord(words));
