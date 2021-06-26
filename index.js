@@ -42,7 +42,7 @@ function isAlphabetical(word) {
 
 	for (let i = 0; i < getIndexOfTheLetter.length - 1; i++) {
 		if (
-			ALPHABET.indexOf(getIndexOfTheLetter[i + 1]) <=
+			ALPHABET.indexOf(getIndexOfTheLetter[i + 1]) <
 			ALPHABET.indexOf(getIndexOfTheLetter[i])
 		) {
 			return false;
