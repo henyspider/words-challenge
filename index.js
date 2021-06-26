@@ -43,15 +43,11 @@ function isAlphabetical(word) {
 	const getIndexOfTheLetter = word.split("");
 
 	for (let i = 0; i < getIndexOfTheLetter.length - 1; i++) {
-		if (
+		return (
 			ALPHABET.indexOf(getIndexOfTheLetter[i + 1]) >
 			ALPHABET.indexOf(getIndexOfTheLetter[i])
-		) {
-			count += 1;
-		}
+		);
 	}
-
-	return count === getIndexOfTheLetter.length - 1;
 }
 
 function getLongestWord(alphabeticalWords) {
