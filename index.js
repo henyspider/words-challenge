@@ -34,7 +34,7 @@ const ALPHABET = [
 function getLongestAlphabeticalWord(words) {
 	let alphabeticalWords = [];
 
-	words.forEach((word) => {
+	words.filter((word) => {
 		if (isAlphabetical(word)) {
 			alphabeticalWords.push(word);
 		}
