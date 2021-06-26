@@ -55,7 +55,7 @@ function getLongestWord(alphabeticalWords) {
 	let baseLength = 0;
 	let longest;
 
-	const longestWord = alphabeticalWords.filter((word) => {
+	const longestWord = alphabeticalWords.forEach((word) => {
 		if (word.length > baseLength) {
 			baseLength = word.length;
 			longest = word;
