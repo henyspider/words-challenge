@@ -55,16 +55,14 @@ function getLongestWord(alphabeticalWords) {
 	let baseLength = 0;
 	let longest;
 
-	const longestWord = alphabeticalWords.forEach((word) => {
+	alphabeticalWords.forEach((word) => {
 		if (word.length > baseLength) {
 			baseLength = word.length;
 			longest = word;
-
-			return longest;
 		}
 	});
 
-	return longestWord;
+	return longest;
 }
 
 console.log(getLongestAlphabeticalWord(words)); //undefined
