@@ -67,4 +67,4 @@ function getLongestWord(alphabeticalWords) {
 	return longestWord;
 }
 
-console.log(getLongestAlphabeticalWord(words)); //['ab', 'aba', 'ababdeh', 'abacinate', 'abacination', 'abalienating', 'abarticulation', 'abdominoanterior', 'abdominohysterectomy', 'acetylphenylhydrazine',..]
+console.log(getLongestAlphabeticalWord(words)); //undefined
