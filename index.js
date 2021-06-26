@@ -32,11 +32,7 @@ const ALPHABET = [
 ];
 
 function getLongestAlphabeticalWord(words) {
-	let alphabeticalWords = [];
-
-	words
-		.filter((word) => isAlphabetical(word))
-		.map((word) => alphabeticalWords.push(word));
+	const alphabeticalWords = words.filter((word) => isAlphabetical(word));
 
 	return isLongestWord(alphabeticalWords);
 }
