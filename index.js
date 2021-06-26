@@ -1,59 +1,68 @@
-import fs from 'fs';
+import fs from "fs";
 
-const data = fs.readFileSync('words_alpha.txt', 'utf8');
-const words = data.split('\r\n');
-const ALPHABET = ['a', 'b', 'c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+const data = fs.readFileSync("words_alpha.txt", "utf8");
+const words = data.split("\r\n");
+const ALPHABET = [
+	"a",
+	"b",
+	"c",
+	"d",
+	"e",
+	"f",
+	"g",
+	"h",
+	"i",
+	"j",
+	"k",
+	"l",
+	"m",
+	"n",
+	"o",
+	"p",
+	"q",
+	"r",
+	"s",
+	"t",
+	"u",
+	"v",
+	"w",
+	"x",
+	"y",
+	"z",
+];
 
-function getLongestAlphabeticalWord(words){
+function getLongestAlphabeticalWord(words) {
+	const alphabeticalWords = words.filter((word) => isAlphabetical(word));
 
-    let alphabeticalWords = [];
-    
-    for (let i = 0; i < words.length; i++){
-
-        if (isAlphabetical(words[i])){
-            alphabeticalWords.push(words[i])
-        }
-    }
-
-    return getTheLongestWord(alphabeticalWords)
- }
-
-
-function isAlphabetical(word){
-
-    let alphabeticalWord = [];
-    let count = 0; 
-
-    for (let j = 0; j < word.length; j++){
-       alphabeticalWord.push(ALPHABET.indexOf(word[j]))
-    } 
-    
-    for (let i = 0; i < alphabeticalWord.length-1; i++){
-
-        if (alphabeticalWord[i+1] > alphabeticalWord[i]){
-            count += 1
-        }
-    }
-    
-    return count === alphabeticalWord.length-1
+	return getLongestWord(alphabeticalWords);
 }
 
+function isAlphabetical(word) {
+	const getIndexOfTheLetter = word.split("");
 
-function getTheLongestWord(arr){
-
-    let baseLength = 0;
-    let longest;
-    
-    for (let i = 0; i < arr.length; i++) {
-
-        if (arr[i].length > baseLength) {
-          baseLength = arr[i].length;
-          longest = arr[i];
-        }
-    }
-
-    return longest
-
+	for (let i = 0; i < getIndexOfTheLetter.length - 1; i++) {
+		if (
+			ALPHABET.indexOf(getIndexOfTheLetter[i + 1]) <
+			ALPHABET.indexOf(getIndexOfTheLetter[i])
+		) {
+			return false;
+		}
+	}
+	return true;
 }
 
-console.log(getLongestAlphabeticalWord(words))
+function getLongestWord(alphabeticalWords) {
+	let baseLength = 0;
+	let longest;
+
+	alphabeticalWords.forEach((word) => {
+		if (word.length > baseLength) {
+			baseLength = word.length;
+			longest = word;
+		}
+	});
+
+	return longest;
+}
+
+console.log(getLongestAlphabeticalWord(words));
