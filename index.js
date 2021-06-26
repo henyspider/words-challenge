@@ -34,7 +34,7 @@ const ALPHABET = [
 function getLongestAlphabeticalWord(words) {
 	const alphabeticalWords = words.filter((word) => isAlphabetical(word));
 
-	return isLongestWord(alphabeticalWords);
+	return getLongestWord(alphabeticalWords);
 }
 
 function isAlphabetical(word) {
@@ -54,11 +54,11 @@ function isAlphabetical(word) {
 	return count === getIndexOfTheLetter.length - 1;
 }
 
-function isLongestWord(alphabeticalWords) {
+function getLongestWord(alphabeticalWords) {
 	let baseLength = 0;
 	let longest;
 
-	const getLongestWord = alphabeticalWords.filter((word) => {
+	const longestWord = alphabeticalWords.filter((word) => {
 		if (word.length > baseLength) {
 			baseLength = word.length;
 			longest = word;
@@ -67,7 +67,7 @@ function isLongestWord(alphabeticalWords) {
 		}
 	});
 
-	return getLongestWord;
+	return longestWord;
 }
 
 console.log(getLongestAlphabeticalWord(words)); //['a','ab', 'abc', 'abdest', 'adelops', 'aegilops']
