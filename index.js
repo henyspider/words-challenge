@@ -31,7 +31,7 @@ const ALPHABET = [
 	"z",
 ];
 
-function areAlphabetical(words) {
+function getLongestAlphabeticalWord(words) {
 	let alphabeticalWords = [];
 
 	words.forEach((word) => {
@@ -76,4 +76,4 @@ function isLongestWord(alphabeticalWords) {
 	return getLongestWord;
 }
 
-console.log(areAlphabetical(words)); //['a','ab', 'abc', 'abdest', 'adelops', 'aegilops']
+console.log(getLongestAlphabeticalWord(words)); //['a','ab', 'abc', 'abdest', 'adelops', 'aegilops']
