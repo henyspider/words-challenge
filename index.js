@@ -38,8 +38,6 @@ function getLongestAlphabeticalWord(words) {
 }
 
 function isAlphabetical(word) {
-	let count = 0;
-
 	const getIndexOfTheLetter = word.split("");
 
 	for (let i = 0; i < getIndexOfTheLetter.length - 1; i++) {
